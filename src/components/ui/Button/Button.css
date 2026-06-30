@@ -1,0 +1,116 @@
+/*
+ * Button primitive styles. All values reference design tokens via CSS custom
+ * properties (docs/04_DESIGN_SYSTEM.md §4) — no hardcoded colors or spacing.
+ */
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    opacity var(--duration-fast) ease;
+}
+
+.c-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.c-button[data-full-width='true'] {
+  width: 100%;
+}
+
+/* Sizes */
+.c-button[data-size='sm'] {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
+}
+.c-button[data-size='md'] {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-md);
+}
+.c-button[data-size='lg'] {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-size-lg);
+}
+
+/* Variants */
+.c-button[data-variant='primary'] {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.c-button[data-variant='primary']:not(:disabled):hover {
+  background-color: var(--color-primary-hover);
+}
+.c-button[data-variant='primary']:not(:disabled):active {
+  background-color: var(--color-primary-active);
+}
+
+.c-button[data-variant='secondary'] {
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-primary);
+}
+.c-button[data-variant='secondary']:not(:disabled):hover {
+  background-color: var(--color-border);
+}
+
+.c-button[data-variant='outline'] {
+  background-color: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+.c-button[data-variant='outline']:not(:disabled):hover {
+  background-color: var(--color-surface-muted);
+}
+
+.c-button[data-variant='ghost'] {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+.c-button[data-variant='ghost']:not(:disabled):hover {
+  background-color: var(--color-surface-muted);
+}
+
+.c-button[data-variant='danger'] {
+  background-color: var(--color-danger);
+  color: var(--color-text-inverse);
+}
+
+.c-button[data-variant='success'] {
+  background-color: var(--color-success);
+  color: var(--color-text-inverse);
+}
+
+/* Loading spinner */
+.c-button__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-full);
+  animation: c-button-spin var(--duration-slow) linear infinite;
+}
+
+@keyframes c-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-button__spinner {
+    animation-duration: 1.5s;
+  }
+}

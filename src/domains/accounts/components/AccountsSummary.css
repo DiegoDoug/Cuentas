@@ -1,0 +1,29 @@
+/*
+ * Accounts summary styles. Token-driven only (docs/04_DESIGN_SYSTEM.md §4).
+ */
+
+.c-accounts-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+}
+
+.c-accounts-summary__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.c-accounts-summary__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.c-accounts-summary__value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}

@@ -14,5 +14,11 @@ requires:
 - a migration (`.upgrade()` when data must be transformed)
 - a migration test
 
-Stage 1 declares version 1 only (the infrastructure `meta` table). Domain
-stages add their tables here.
+Declared versions:
+
+- **v1** — infrastructure `meta` table (Stage 1).
+- **v2** — `accounts` table (Stage 2). Index-only addition, so no `.upgrade()`
+  step is needed; the store is verified by the accounts repository/service
+  tests against a fresh versioned database.
+
+Later domain stages append their tables here.

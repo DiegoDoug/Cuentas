@@ -10,10 +10,20 @@ data is the source of truth.
 
 ## Status
 
-**Stage 1 — Foundation.** This stage establishes the architecture, tooling, and
-quality gates that domains build on. No financial domains ship yet.
+**Stage 2 — Accounts.** The first financial domain is live, built as a complete
+vertical slice on the Stage 1 foundation. See
+[`docs/ADR/0002-stage-2-accounts.md`](./docs/ADR/0002-stage-2-accounts.md) and
+[`src/domains/accounts/README.md`](./src/domains/accounts/README.md).
 
-Delivered:
+Delivered in Stage 2:
+
+- The **Accounts** domain — entity, validation, repository, service, selectors,
+  UI-state store, hook, and the `/accounts` screen (create, edit, soft-delete).
+- Schema **v2** adds the `accounts` table additively (`docs/03_DATA_LAYER.md §8`).
+- `Input` and `Select` design-system primitives.
+- Integer **minor-unit** money model with conversion/formatting helpers.
+
+Delivered in Stage 1 (Foundation):
 
 - Vite + React 19 + TypeScript (strict) build with path alias `@/ → src/`.
 - Mandated layered folder structure (`docs/02_ARCHITECTURE.md §4`).

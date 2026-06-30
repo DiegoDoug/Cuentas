@@ -1,0 +1,43 @@
+/*
+ * Minimal global baseline.
+ *
+ * This file intentionally contains only a reset and document-level defaults.
+ * All visual values (color, spacing, typography, radius, shadows, motion) will
+ * live in the token modules under styles/tokens and styles/themes per
+ * docs/04_DESIGN_SYSTEM.md. Components must consume tokens, never literals.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

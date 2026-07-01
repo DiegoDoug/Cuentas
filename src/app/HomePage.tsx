@@ -1,12 +1,13 @@
 import { type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/Button';
 import { useTheme, useToggleTheme } from '@/shared/store/theme.store';
 
 /**
- * Initial application screen. A minimal welcome view that exercises the Stage 1
- * foundation end-to-end: design tokens, theming, and the Button primitive.
- * Domain pages replace/extend this in later stages.
+ * Initial application screen. A minimal welcome view that exercises the
+ * foundation end-to-end (design tokens, theming, the Button primitive) and
+ * links into the first financial domain, Accounts.
  */
 export function HomePage(): ReactNode {
   const theme = useTheme();
@@ -31,9 +32,23 @@ export function HomePage(): ReactNode {
       </h1>
       <p style={{ color: 'var(--color-text-secondary)', maxWidth: '42ch' }}>
         Offline-first personal finance. The architecture, design system, and persistence foundation
-        are in place — financial domains come next.
+        are in place — and the first financial domain, Accounts, is live.
       </p>
-      <Button onClick={toggleTheme}>Switch to {nextTheme} theme</Button>
+      <div
+        style={{
+          display: 'flex',
+          gap: 'var(--space-3)',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
+        <Link to="/accounts">
+          <Button>Manage accounts</Button>
+        </Link>
+        <Button variant="outline" onClick={toggleTheme}>
+          Switch to {nextTheme} theme
+        </Button>
+      </div>
     </main>
   );
 }

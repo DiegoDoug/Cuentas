@@ -29,5 +29,8 @@ domains/<domain>/
   README.md        # Responsibilities, public API, dependencies, roadmap
 ```
 
-No domains ship in Stage 1 — this foundation establishes the architecture,
-tokens, persistence base, and quality gates that domains will build on.
+## Implemented domains
+
+- **accounts** (Stage 2) — financial accounts; the first and foundational domain
+  (see [`accounts/README.md`](./accounts/README.md)). Transactions, budgets, and
+  analytics will reference it in later stages.

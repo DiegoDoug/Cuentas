@@ -1,0 +1,39 @@
+/*
+ * Account form styles. Token-driven only (docs/04_DESIGN_SYSTEM.md §4).
+ */
+
+.c-account-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.c-account-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.c-account-form__field label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.c-account-form__row {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.c-account-form__error {
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+}
+
+.c-account-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
